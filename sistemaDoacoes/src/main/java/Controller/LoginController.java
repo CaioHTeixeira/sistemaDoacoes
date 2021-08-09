@@ -44,10 +44,4 @@ public class LoginController {
            JOptionPane.showMessageDialog(loginView, "Usuário ou Senha inválidos!"); 
         }
     }
-    
-    public void erroAutenticacao() {
-        JOptionPane.showMessageDialog(loginView, "Usuário ou Senha inválidos!");
-    }
-    
-    
 }

@@ -45,5 +45,4 @@ public class CadastroUsuarioController {
             Logger.getLogger(CadastroUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 }
