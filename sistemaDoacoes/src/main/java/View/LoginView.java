@@ -111,7 +111,7 @@ public class LoginView extends javax.swing.JFrame {
         try {
             loginController.autenticar();
         } catch (SQLException ex) {
-            loginController.erroAutenticacao();
+            ex.getMessage();
         }
     }//GEN-LAST:event_jButtonEntrarLoginActionPerformed
 
