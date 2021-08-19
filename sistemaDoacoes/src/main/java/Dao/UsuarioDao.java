@@ -44,7 +44,5 @@ public class UsuarioDao {
         
         ResultSet resultSet = statement.getResultSet();
         return resultSet.next();
-    }
-
-    
+    } 
 }

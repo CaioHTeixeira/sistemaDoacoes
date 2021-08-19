@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
+
+import Controller.CadastroItemController;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import Model.Usuario;
+import javax.swing.JLabel;
 
 /**
  *
@@ -14,9 +15,19 @@ public class CadastroItemView extends javax.swing.JFrame {
     /**
      * Creates new form CadastroItem
      */
+    private Usuario usuario;
+    private final CadastroItemController cadastroItemController;
+    private String caminhoFotoItem = "";
     
     public CadastroItemView() {
         initComponents();
+        cadastroItemController = new CadastroItemController();
+    }
+    
+    public CadastroItemView(Usuario usuario) {
+        this.usuario = usuario;
+        initComponents();
+        cadastroItemController = new CadastroItemController(usuario, this);
     }
 
     /**
@@ -41,6 +52,9 @@ public class CadastroItemView extends javax.swing.JFrame {
         jToggleButtonSalvarItemCadastroItem = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
         jToggleButtonVoltarCadastroItem = new javax.swing.JToggleButton();
+        jLabelImagemCadastro = new javax.swing.JLabel();
+        jTextFieldCaminhoFoto = new javax.swing.JTextField();
+        jButtonUpload = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(600, 600));
@@ -78,6 +92,13 @@ public class CadastroItemView extends javax.swing.JFrame {
             }
         });
 
+        jButtonUpload.setText("Upload");
+        jButtonUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUploadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +110,6 @@ public class CadastroItemView extends javax.swing.JFrame {
                         .addGap(241, 241, 241)
                         .addComponent(jLabel6))
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
@@ -102,8 +122,18 @@ public class CadastroItemView extends javax.swing.JFrame {
                             .addComponent(jToggleButtonSalvarItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jToggleButtonVoltarCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jComboBoxTipoItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(276, Short.MAX_VALUE))
+                    .addComponent(jComboBoxTipoItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelImagemCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(jTextFieldCaminhoFoto))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonUpload)
+                        .addGap(67, 67, 67))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,32 +141,40 @@ public class CadastroItemView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel6))
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 544, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jToggleButtonSalvarItemCadastroItem)
+                            .addComponent(jToggleButtonVoltarCadastroItem)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldIdItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxTipoItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldDescricaoItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextFieldIdItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBoxTipoItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldDescricaoItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelImagemCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldQuantidadeItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldQuantidadeItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldCaminhoFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldCidadeItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButtonSalvarItemCadastroItem)
-                    .addComponent(jToggleButtonVoltarCadastroItem))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldCidadeItemCadastroItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonUpload))))
                 .addContainerGap())
         );
 
@@ -149,15 +187,75 @@ public class CadastroItemView extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTipoItemCadastroItemActionPerformed
 
     private void jToggleButtonVoltarCadastroItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonVoltarCadastroItemActionPerformed
-        HomeView telaHome = new HomeView();
+        HomeView telaHome = new HomeView(usuario);
         telaHome.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jToggleButtonVoltarCadastroItemActionPerformed
 
     private void jToggleButtonSalvarItemCadastroItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonSalvarItemCadastroItemActionPerformed
-        
+        cadastroItemController.salvaItem();
     }//GEN-LAST:event_jToggleButtonSalvarItemCadastroItemActionPerformed
 
+    private void jButtonUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUploadActionPerformed
+        cadastroItemController.uploadFotoItem();
+    }//GEN-LAST:event_jButtonUploadActionPerformed
+
+    public JComboBox<String> getjComboBoxTipoItemCadastroItem() {
+        return jComboBoxTipoItemCadastroItem;
+    }
+
+    public void setjComboBoxTipoItemCadastroItem(JComboBox<String> jComboBoxTipoItemCadastroItem) {
+        this.jComboBoxTipoItemCadastroItem = jComboBoxTipoItemCadastroItem;
+    }
+
+    public JTextField getjTextFieldCidadeItemCadastroItem() {
+        return jTextFieldCidadeItemCadastroItem;
+    }
+
+    public void setjTextFieldCidadeItemCadastroItem(JTextField jTextFieldCidadeItemCadastroItem) {
+        this.jTextFieldCidadeItemCadastroItem = jTextFieldCidadeItemCadastroItem;
+    }
+
+    public JTextField getjTextFieldDescricaoItemCadastroItem() {
+        return jTextFieldDescricaoItemCadastroItem;
+    }
+
+    public void setjTextFieldDescricaoItemCadastroItem(JTextField jTextFieldDescricaoItemCadastroItem) {
+        this.jTextFieldDescricaoItemCadastroItem = jTextFieldDescricaoItemCadastroItem;
+    }
+
+    public JTextField getjTextFieldIdItemCadastroItem() {
+        return jTextFieldIdItemCadastroItem;
+    }
+
+    public void setjTextFieldIdItemCadastroItem(JTextField jTextFieldIdItemCadastroItem) {
+        this.jTextFieldIdItemCadastroItem = jTextFieldIdItemCadastroItem;
+    }
+
+    public JTextField getjTextFieldQuantidadeItemCadastroItem() {
+        return jTextFieldQuantidadeItemCadastroItem;
+    }
+
+    public void setjTextFieldQuantidadeItemCadastroItem(JTextField jTextFieldQuantidadeItemCadastroItem) {
+        this.jTextFieldQuantidadeItemCadastroItem = jTextFieldQuantidadeItemCadastroItem;
+    }
+
+    public JLabel getjLabelImagemCadastro() {
+        return jLabelImagemCadastro;
+    }
+
+    public void setjLabelImagemCadastro(JLabel jLabelImagemCadastro) {
+        this.jLabelImagemCadastro = jLabelImagemCadastro;
+    }
+
+    public String getCaminhoFotoItem() {
+        return caminhoFotoItem;
+    }
+
+    public void setCaminhoFotoItem(String caminhoFotoItem) {
+        this.caminhoFotoItem = caminhoFotoItem;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -195,6 +293,7 @@ public class CadastroItemView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonUpload;
     private javax.swing.JComboBox<String> jComboBoxTipoItemCadastroItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -202,6 +301,8 @@ public class CadastroItemView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelImagemCadastro;
+    private javax.swing.JTextField jTextFieldCaminhoFoto;
     private javax.swing.JTextField jTextFieldCidadeItemCadastroItem;
     private javax.swing.JTextField jTextFieldDescricaoItemCadastroItem;
     private javax.swing.JTextField jTextFieldIdItemCadastroItem;

@@ -37,7 +37,7 @@ public class LoginController {
         boolean existeUsuarioNoBancoDeDados = usuarioDao.existeUsuarioNoBancoDeDados(usuario);
         
         if (existeUsuarioNoBancoDeDados) {
-            HomeView telaHome = new HomeView();
+            HomeView telaHome = new HomeView(usuario);
             telaHome.setVisible(true);
             loginView.setVisible(false);
         } else {

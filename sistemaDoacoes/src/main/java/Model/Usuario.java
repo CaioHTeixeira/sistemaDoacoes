@@ -1,19 +1,16 @@
 package Model;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author caiot
  */
 public class Usuario {
     
-    private int id;
+    private int idUsuario;
     private String nome;
     private String email;
     private String senha;
     private String tipoPessoa;
-    private ArrayList<Item> listaItensUsuario;
 
     public Usuario() {
     }
@@ -30,14 +27,14 @@ public class Usuario {
         this.tipoPessoa = tipoPessoa;
     }
 
-    public int getId() {
-        return id;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
-
+    
     public String getNome() {
         return nome;
     }
@@ -68,13 +65,5 @@ public class Usuario {
 
     public void setTipoPessoa(String tipoPessoa) {
         this.tipoPessoa = tipoPessoa;
-    }
-    
-    public ArrayList<Item> getListaItensUsuario() {
-        return listaItensUsuario;
-    }
-
-    public void setListaItensUsuario(ArrayList<Item> listaItensUsuario) {
-        this.listaItensUsuario = listaItensUsuario;
     }
 }

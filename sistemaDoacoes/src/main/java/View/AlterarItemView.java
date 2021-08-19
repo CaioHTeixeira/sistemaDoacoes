@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
+
+import Controller.AlterarItemController;
+import Model.Usuario;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -11,14 +12,87 @@ package View;
  */
 public class AlterarItemView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AlterarItem
-     */
+    private Usuario usuario;
+    private final AlterarItemController alterarItemController;
+    private String caminhoFotoItem = "";
     
     public AlterarItemView() {
         initComponents();
+        alterarItemController = new AlterarItemController();
+    }
+    
+    public AlterarItemView(Usuario usuario) {
+        this.usuario = usuario;
+        initComponents();
+        alterarItemController = new AlterarItemController(usuario, this);
     }
 
+    public JComboBox<String> getjComboBoxTipoItemAlterarItem() {
+        return jComboBoxTipoItemAlterarItem;
+    }
+
+    public void setjComboBoxTipoItemAlterarItem(JComboBox<String> jComboBoxTipoItemAlterarItem) {
+        this.jComboBoxTipoItemAlterarItem = jComboBoxTipoItemAlterarItem;
+    }
+
+    public JTextField getjTextFieldCidadeItemAlterarItem() {
+        return jTextFieldCidadeItemAlterarItem;
+    }
+
+    public void setjTextFieldCidadeItemAlterarItem(JTextField jTextFieldCidadeItemAlterarItem) {
+        this.jTextFieldCidadeItemAlterarItem = jTextFieldCidadeItemAlterarItem;
+    }
+
+    public JTextField getjTextFieldDescricaoItemAlterarItem() {
+        return jTextFieldDescricaoItemAlterarItem;
+    }
+
+    public void setjTextFieldDescricaoItemAlterarItem(JTextField jTextFieldDescricaoItemAlterarItem) {
+        this.jTextFieldDescricaoItemAlterarItem = jTextFieldDescricaoItemAlterarItem;
+    }
+
+    public JTextField getjTextFieldIdItemAlterarItem() {
+        return jTextFieldIdItemAlterarItem;
+    }
+
+    public void setjTextFieldIdItemAlterarItem(JTextField jTextFieldIdItemAlterarItem) {
+        this.jTextFieldIdItemAlterarItem = jTextFieldIdItemAlterarItem;
+    }
+
+    public JTextField getjTextFieldQuantidadeItemAlterarItem() {
+        return jTextFieldQuantidadeItemAlterarItem;
+    }
+
+    public void setjTextFieldQuantidadeItemAlterarItem(JTextField jTextFieldQuantidadeItemAlterarItem) {
+        this.jTextFieldQuantidadeItemAlterarItem = jTextFieldQuantidadeItemAlterarItem;
+    }
+
+    public String getCaminhoFotoItem() {
+        return caminhoFotoItem;
+    }
+
+    public void setCaminhoFotoItem(String caminhoFotoItem) {
+        this.caminhoFotoItem = caminhoFotoItem;
+    }
+
+    public JLabel getjLabelImagem() {
+        return jLabelImagem;
+    }
+
+    public void setjLabelImagem(JLabel jLabelImagem) {
+        this.jLabelImagem = jLabelImagem;
+    }
+
+    public JTextField getjTextFieldCaminhoFoto() {
+        return jTextFieldCaminhoFoto;
+    }
+
+    public void setjTextFieldCaminhoFoto(JTextField jTextFieldCaminhoFoto) {
+        this.jTextFieldCaminhoFoto = jTextFieldCaminhoFoto;
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +115,9 @@ public class AlterarItemView extends javax.swing.JFrame {
         jToggleButtonAtualizarItem = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
         jToggleButtonVoltarAlterarItem = new javax.swing.JToggleButton();
+        jLabelImagem = new javax.swing.JLabel();
+        jTextFieldCaminhoFoto = new javax.swing.JTextField();
+        jButtonUpload = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,36 +154,52 @@ public class AlterarItemView extends javax.swing.JFrame {
             }
         });
 
+        jButtonUpload.setText("Upload");
+        jButtonUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUploadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(269, 269, 269)
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jToggleButtonAtualizarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jToggleButtonVoltarAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldCidadeItemAlterarItem)
-                            .addComponent(jTextFieldQuantidadeItemAlterarItem)
-                            .addComponent(jTextFieldDescricaoItemAlterarItem)
-                            .addComponent(jComboBoxTipoItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextFieldIdItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(269, 269, 269)
-                        .addComponent(jLabel5)))
-                .addContainerGap(273, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jToggleButtonAtualizarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jToggleButtonVoltarAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextFieldCidadeItemAlterarItem)
+                                .addComponent(jTextFieldQuantidadeItemAlterarItem)
+                                .addComponent(jTextFieldDescricaoItemAlterarItem)
+                                .addComponent(jComboBoxTipoItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldIdItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldCaminhoFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButtonUpload)
+                                .addGap(57, 57, 57)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,27 +209,35 @@ public class AlterarItemView extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldIdItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBoxTipoItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldDescricaoItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldQuantidadeItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldCidadeItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButtonAtualizarItem)
-                    .addComponent(jToggleButtonVoltarAlterarItem))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextFieldIdItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBoxTipoItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDescricaoItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldQuantidadeItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCidadeItemAlterarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jToggleButtonAtualizarItem)
+                            .addComponent(jToggleButtonVoltarAlterarItem)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jTextFieldCaminhoFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonUpload)))
                 .addContainerGap())
         );
 
@@ -149,14 +250,18 @@ public class AlterarItemView extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTipoItemAlterarItemActionPerformed
 
     private void jToggleButtonVoltarAlterarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonVoltarAlterarItemActionPerformed
-        HomeView telaHome = new HomeView();
+        HomeView telaHome = new HomeView(usuario);
         telaHome.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jToggleButtonVoltarAlterarItemActionPerformed
 
     private void jToggleButtonAtualizarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAtualizarItemActionPerformed
-        
+        alterarItemController.alteraItem();
     }//GEN-LAST:event_jToggleButtonAtualizarItemActionPerformed
+
+    private void jButtonUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUploadActionPerformed
+        alterarItemController.uploadFotoItem();
+    }//GEN-LAST:event_jButtonUploadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +300,7 @@ public class AlterarItemView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonUpload;
     private javax.swing.JComboBox<String> jComboBoxTipoItemAlterarItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -202,6 +308,8 @@ public class AlterarItemView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelImagem;
+    private javax.swing.JTextField jTextFieldCaminhoFoto;
     private javax.swing.JTextField jTextFieldCidadeItemAlterarItem;
     private javax.swing.JTextField jTextFieldDescricaoItemAlterarItem;
     private javax.swing.JTextField jTextFieldIdItemAlterarItem;

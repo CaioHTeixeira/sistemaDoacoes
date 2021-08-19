@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
-
-import java.awt.Image;
 
 /**
  *
@@ -13,21 +6,31 @@ import java.awt.Image;
  */
 public class Item {
     
+    private int idItem;
     private int quantidade;
     private String tipoItem;
     private String descricao;
     private String cidade;
-    private Image fotoItem;
+    private String caminhoFotoItem;
 
     public Item() {
     }
 
-    public Item(int quantidade, String tipoItem, String descricao, String cidade, Image fotoItem) {
+    public Item(int idItem, int quantidade, String tipoItem, String descricao, String cidade, String caminhoFotoItem) {
+        this.idItem = idItem;
         this.quantidade = quantidade;
         this.tipoItem = tipoItem;
         this.descricao = descricao;
         this.cidade = cidade;
-        this.fotoItem = fotoItem;
+        this.caminhoFotoItem = caminhoFotoItem;
+    }
+
+    public int getIdItem() {
+        return idItem;
+    }
+
+    public void setIdItem(int idItem) {
+        this.idItem = idItem;
     }
     
     public int getQuantidade() {
@@ -62,13 +65,11 @@ public class Item {
         this.cidade = cidade;
     }
 
-    public Image getFotoItem() {
-        return fotoItem;
+    public String getCaminhoFotoItem() {
+        return caminhoFotoItem;
     }
 
-    public void setFotoItem(Image fotoItem) {
-        this.fotoItem = fotoItem;
+    public void setCaminhoFotoItem(String caminhoFotoItem) {
+        this.caminhoFotoItem = caminhoFotoItem;
     }
-    
-    
 }
