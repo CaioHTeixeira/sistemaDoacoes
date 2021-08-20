@@ -45,8 +45,4 @@ public class CadastroUsuarioController {
             Logger.getLogger(CadastroUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 }
