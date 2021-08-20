@@ -1,4 +1,5 @@
 C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Model\Usuario.java
+<<<<<<< HEAD
 C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\HomeView.java
 C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\CadastroItemView.java
 C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\ExcluirItemView.java
@@ -10,3 +11,22 @@ C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Dao\Usuar
 C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Model\Item.java
 C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\CadastroUsuarioView.java
 C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\LoginView.java
+=======
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\CadastroItemView.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Controller\AlterarItemController.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Controller\ExcluirItemController.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Controller\LoginController.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Dao\ItemDao.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Controller\PesquisarItemController.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Dao\Conexao.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Controller\CadastroItemController.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Dao\UsuarioDao.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Model\Item.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\LoginView.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\HomeView.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\PesquisarItemView.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\ExcluirItemView.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\AlterarItemView.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\Controller\CadastroUsuarioController.java
+C:\Users\caiot\Documents\NetBeansProjects\sistemaDoacoes\src\main\java\View\CadastroUsuarioView.java
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a

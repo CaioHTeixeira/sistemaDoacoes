@@ -1,19 +1,29 @@
 package Model;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
+=======
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 /**
  *
  * @author caiot
  */
 public class Usuario {
     
+<<<<<<< HEAD
     private int id;
+=======
+    private int idUsuario;
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
     private String nome;
     private String email;
     private String senha;
     private String tipoPessoa;
+<<<<<<< HEAD
     private ArrayList<Item> listaItensUsuario;
+=======
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 
     public Usuario() {
     }
@@ -30,6 +40,7 @@ public class Usuario {
         this.tipoPessoa = tipoPessoa;
     }
 
+<<<<<<< HEAD
     public int getId() {
         return id;
     }
@@ -38,6 +49,16 @@ public class Usuario {
         this.id = id;
     }
 
+=======
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
     public String getNome() {
         return nome;
     }
@@ -69,6 +90,7 @@ public class Usuario {
     public void setTipoPessoa(String tipoPessoa) {
         this.tipoPessoa = tipoPessoa;
     }
+<<<<<<< HEAD
     
     public ArrayList<Item> getListaItensUsuario() {
         return listaItensUsuario;
@@ -77,4 +99,6 @@ public class Usuario {
     public void setListaItensUsuario(ArrayList<Item> listaItensUsuario) {
         this.listaItensUsuario = listaItensUsuario;
     }
+=======
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 }

@@ -43,8 +43,13 @@ public class UsuarioDao {
         statement.execute();
         
         ResultSet resultSet = statement.getResultSet();
+<<<<<<< HEAD
         boolean existeUsuario = resultSet.next();
         
         return existeUsuario;
     }    
+=======
+        return resultSet.next();
+    } 
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 }

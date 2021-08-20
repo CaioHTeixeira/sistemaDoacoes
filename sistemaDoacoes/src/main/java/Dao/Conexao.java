@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+=======
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 package Dao;
 
 import java.sql.Connection;

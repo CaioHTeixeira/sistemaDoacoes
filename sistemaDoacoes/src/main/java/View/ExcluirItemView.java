@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,11 +6,20 @@
  */
 package View;
 
+=======
+package View;
+
+import Controller.ExcluirItemController;
+import Model.Usuario;
+import javax.swing.JTextField;
+
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 /**
  *
  * @author caiot
  */
 public class ExcluirItemView extends javax.swing.JFrame {
+<<<<<<< HEAD
 
     /**
      * Creates new form ExcluirItem
@@ -18,6 +28,33 @@ public class ExcluirItemView extends javax.swing.JFrame {
         initComponents();
     }
 
+=======
+    
+    private Usuario usuario;
+    private final ExcluirItemController excluirItemController;
+    
+    public ExcluirItemView() {
+        initComponents();
+        excluirItemController = new ExcluirItemController();
+    }
+    
+    public ExcluirItemView(Usuario usuario) {
+        this.usuario = usuario;
+        initComponents();
+        excluirItemController = new ExcluirItemController(usuario, this);
+    }
+
+    public JTextField getjTextFieldIdItemExcluirItem() {
+        return jTextFieldIdItemExcluirItem;
+    }
+
+    public void setjTextFieldIdItemExcluirItem(JTextField jTextFieldIdItemExcluirItem) {
+        this.jTextFieldIdItemExcluirItem = jTextFieldIdItemExcluirItem;
+    }
+    
+    
+    
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,13 +131,21 @@ public class ExcluirItemView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButtonVoltarExcluirItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonVoltarExcluirItemActionPerformed
+<<<<<<< HEAD
         HomeView telaHome = new HomeView();
+=======
+        HomeView telaHome = new HomeView(usuario);
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
         telaHome.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jToggleButtonVoltarExcluirItemActionPerformed
 
     private void jToggleButtonConfirmarExcluirItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonConfirmarExcluirItemActionPerformed
+<<<<<<< HEAD
         // TODO add your handling code here:
+=======
+        excluirItemController.excluirItem();
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
     }//GEN-LAST:event_jToggleButtonConfirmarExcluirItemActionPerformed
 
     /**

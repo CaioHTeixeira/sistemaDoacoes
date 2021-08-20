@@ -5,6 +5,11 @@
  */
 package View;
 
+<<<<<<< HEAD
+=======
+import Model.Usuario;
+
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 /**
  *
  * @author caiot
@@ -13,7 +18,19 @@ public class HomeView extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastroUsuario
+<<<<<<< HEAD
      */
+=======
+     * @param usuario
+     */
+    private Usuario usuario;
+    
+    public HomeView(Usuario usuario) {
+        initComponents();
+        this.usuario = usuario;
+    }
+    
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
     public HomeView() {
         initComponents();
     }
@@ -32,6 +49,10 @@ public class HomeView extends javax.swing.JFrame {
         jButtonExcluirItemHome = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonLogoutHome = new javax.swing.JButton();
+<<<<<<< HEAD
+=======
+        jButtonPesquisarItemHome = new javax.swing.JButton();
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(600, 600));
@@ -81,11 +102,25 @@ public class HomeView extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
+=======
+        jButtonPesquisarItemHome.setText("Pesquisar Item");
+        jButtonPesquisarItemHome.setMaximumSize(new java.awt.Dimension(81, 23));
+        jButtonPesquisarItemHome.setMinimumSize(new java.awt.Dimension(81, 23));
+        jButtonPesquisarItemHome.setPreferredSize(new java.awt.Dimension(81, 23));
+        jButtonPesquisarItemHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisarItemHomeActionPerformed(evt);
+            }
+        });
+
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCadastrarItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -93,6 +128,8 @@ public class HomeView extends javax.swing.JFrame {
                     .addComponent(jButtonExcluirItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
+=======
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
                 .addContainerGap(238, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(217, 217, 217))
@@ -100,6 +137,17 @@ public class HomeView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonLogoutHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(226, 226, 226))
+<<<<<<< HEAD
+=======
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonCadastrarItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAlterarItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonExcluirItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPesquisarItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +160,13 @@ public class HomeView extends javax.swing.JFrame {
                 .addComponent(jButtonAlterarItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonExcluirItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
+=======
+                .addGap(18, 18, 18)
+                .addComponent(jButtonPesquisarItemHome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
                 .addComponent(jButtonLogoutHome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -122,19 +176,31 @@ public class HomeView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCadastrarItemHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarItemHomeActionPerformed
+<<<<<<< HEAD
         CadastroItemView telaCadastroItem = new CadastroItemView();
+=======
+        CadastroItemView telaCadastroItem = new CadastroItemView(usuario);
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
         telaCadastroItem.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCadastrarItemHomeActionPerformed
 
     private void jButtonAlterarItemHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarItemHomeActionPerformed
+<<<<<<< HEAD
         AlterarItemView telaAlterarItem = new AlterarItemView();
+=======
+        AlterarItemView telaAlterarItem = new AlterarItemView(usuario);
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
         telaAlterarItem.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAlterarItemHomeActionPerformed
 
     private void jButtonExcluirItemHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirItemHomeActionPerformed
+<<<<<<< HEAD
         ExcluirItemView telaExcluirItem = new ExcluirItemView();
+=======
+        ExcluirItemView telaExcluirItem = new ExcluirItemView(usuario);
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
         telaExcluirItem.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonExcluirItemHomeActionPerformed
@@ -145,6 +211,15 @@ public class HomeView extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonLogoutHomeActionPerformed
 
+<<<<<<< HEAD
+=======
+    private void jButtonPesquisarItemHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarItemHomeActionPerformed
+        PesquisarItemView telaPesquisarItem = new PesquisarItemView(usuario);
+        telaPesquisarItem.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonPesquisarItemHomeActionPerformed
+
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
     /**
      * @param args the command line arguments
      */
@@ -192,6 +267,10 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastrarItemHome;
     private javax.swing.JButton jButtonExcluirItemHome;
     private javax.swing.JButton jButtonLogoutHome;
+<<<<<<< HEAD
+=======
+    private javax.swing.JButton jButtonPesquisarItemHome;
+>>>>>>> c926bfd7501ee4d3d2f4df9b97ce259c3b03b07a
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
